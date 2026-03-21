@@ -1,0 +1,145 @@
+{
+  "identity": {
+    "name": "SevaSetu",
+    "persona": "The Modern Ashram",
+    "description": "A bridge between tradition and technology. Trustworthy, transparent, and deeply Indian yet globally accessible.",
+    "emotion": "Hope, Dignity, Trust, Action"
+  },
+  "typography": {
+    "font_family_heading": "Merriweather, serif",
+    "font_family_body": "Inter, sans-serif",
+    "scale": {
+      "h1": "text-4xl md:text-6xl font-bold tracking-tight",
+      "h2": "text-3xl md:text-5xl font-bold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-semibold",
+      "p": "text-base md:text-lg leading-relaxed text-muted-foreground",
+      "small": "text-sm font-medium tracking-wide uppercase text-muted-foreground"
+    },
+    "imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Inter:wght@100..900&display=swap');"
+    ]
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#0F172A",
+        "foreground": "#F8FAFC",
+        "description": "Deep Slate - Used for primary text, forceful headers, and footer backgrounds. Represents Stability."
+      },
+      "secondary": {
+        "DEFAULT": "#D97706",
+        "foreground": "#FFFFFF",
+        "description": "Indian Saffron - Used for Primary CTAs (Donate), Highlights, and urgent actions. Represents Sacrifice and Energy."
+      },
+      "accent": {
+        "DEFAULT": "#15803D",
+        "foreground": "#FFFFFF",
+        "description": "Growth Green - Used for success states, progress bars, and nature-related accents."
+      },
+      "background": {
+        "DEFAULT": "#FDFBF7",
+        "paper": "#FFFFFF",
+        "description": "Bone/Warm White - A softer alternative to clinical white. Used for main backgrounds."
+      },
+      "muted": {
+        "DEFAULT": "#F1F5F9",
+        "foreground": "#64748B"
+      }
+    },
+    "gradients": {
+      "hero_overlay": "linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4))",
+      "card_hover": "linear-gradient(to bottom right, rgba(217, 119, 6, 0.05), transparent)"
+    }
+  },
+  "spacing_layout": {
+    "container_max_width": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_padding": "py-16 md:py-24",
+    "grid_gap": "gap-8 md:gap-12",
+    "radius": {
+      "default": "rounded-lg",
+      "button": "rounded-full",
+      "card": "rounded-xl"
+    },
+    "shadows": {
+      "card": "shadow-[0_2px_8px_rgba(0,0,0,0.08)]",
+      "card_hover": "shadow-[0_12px_24px_rgba(0,0,0,0.12)]",
+      "button": "shadow-lg shadow-orange-500/20"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-secondary text-white hover:bg-secondary/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 font-bold tracking-wide px-8 py-3 rounded-full",
+      "secondary": "bg-white text-primary border border-input hover:bg-slate-50 hover:text-secondary transition-colors duration-200 font-medium px-6 py-3 rounded-full",
+      "outline": "border-2 border-white/30 text-white hover:bg-white hover:text-primary transition-all duration-300 font-medium px-6 py-3 rounded-full"
+    },
+    "cards": {
+      "campaign": "bg-white rounded-xl overflow-hidden border border-border/40 hover:border-secondary/30 transition-all duration-300 hover:shadow-xl group",
+      "stat": "bg-slate-50 p-8 rounded-2xl border border-slate-100 text-center hover:bg-white hover:shadow-lg transition-all duration-300",
+      "testimonial": "bg-secondary/5 p-8 rounded-2xl relative"
+    },
+    "inputs": {
+      "default": "flex h-12 w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    }
+  },
+  "assets": {
+    "icons": {
+      "library": "lucide-react",
+      "style": "stroke-width: 1.5px; size: 24px"
+    },
+    "images": {
+      "hero_main": {
+        "url": "https://images.pexels.com/photos/18012463/pexels-photo-18012463.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Rural Indian children studying with smiles",
+        "category": "hero"
+      },
+      "hero_secondary": {
+        "url": "https://images.pexels.com/photos/18012458/pexels-photo-18012458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Classroom interaction in Indian village",
+        "category": "about"
+      },
+      "health_camp": {
+        "url": "https://images.pexels.com/photos/7579824/pexels-photo-7579824.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Doctor examining patient at rural camp",
+        "category": "programs"
+      },
+      "volunteers": {
+        "url": "https://images.pexels.com/photos/7692546/pexels-photo-7692546.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Young volunteers teaching children",
+        "category": "get_involved"
+      },
+      "women_empowerment": {
+        "url": "https://images.unsplash.com/photo-1723564211731-21ceb97443a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjB3b21lbiUyMHNlbGYlMjBoZWxwJTIwZ3JvdXAlMjBtZWV0aW5nfGVufDB8fHx8MTc3MTU4MDEyN3ww&ixlib=rb-4.1.0&q=85",
+        "alt": "Indian women self help group meeting",
+        "category": "programs"
+      },
+      "environment": {
+        "url": "https://images.pexels.com/photos/15597025/pexels-photo-15597025.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Lush green tea plantation and nature",
+        "category": "impact"
+      }
+    }
+  },
+  "layout_strategies": {
+    "landing_page": {
+      "hero": "Full viewport height (min-h-[90vh]) with parallax background image and dark gradient overlay. Centered or Left-aligned typography.",
+      "stats_section": "Bento Grid layout (grid-cols-1 md:grid-cols-4) displaying impact numbers with icons.",
+      "campaigns": "Carousel or Grid (grid-cols-1 md:grid-cols-3) of Campaign Cards.",
+      "cta_section": "High contrast section (Primary Blue bg) with Saffron button."
+    },
+    "dashboard": {
+      "layout": "Sidebar navigation (left) + Top Header (user profile) + Main Content Area (gray background).",
+      "widgets": "White cards with subtle borders and shadows."
+    }
+  },
+  "universal_guidelines": [
+    "Do NOT use gradients for text.",
+    "Do NOT use default shadcn card styles without customizing borders and shadows.",
+    "Ensure 4.5:1 contrast ratio for all text.",
+    "Use 'Merriweather' ONLY for Headings (h1, h2, h3). Use 'Inter' for everything else.",
+    "All buttons must have a hover state transformation (scale or color shift).",
+    "Images must have 'object-cover' and rounded corners consistent with the design system.",
+    "Use 'lucide-react' for all icons.",
+    "Primary CTA color is #D97706 (Saffron).",
+    "Add 'data-testid' to all interactive elements."
+  ]
+}
