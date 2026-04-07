@@ -14,18 +14,18 @@ export const Footer = () => {
               Building bridges of hope across India through education, healthcare, and community empowerment.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-secondary transition-colors" data-testid="footer-facebook">
+              <a href="https://www.facebook.com/people/Charitage-Foundation/61588498050844/" className="hover:text-secondary transition-colors" data-testid="footer-facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-secondary transition-colors" data-testid="footer-twitter">
-                <Twitter className="w-5 h-5" />
+              <a href="https://youtube.com/@charitagefoundationngo?si=hNQP2ruWtrQm1oVf" className="hover:text-secondary transition-colors" data-testid="footer-youtube">
+                <YouTube className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-secondary transition-colors" data-testid="footer-instagram">
+              <a href="https://www.instagram.com/charitage_foundation?igsh=c2ZndHlpdGZjNWx2" className="hover:text-secondary transition-colors" data-testid="footer-instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-secondary transition-colors" data-testid="footer-linkedin">
-                <Linkedin className="w-5 h-5" />
-              </a>
+              // <a href="#" className="hover:text-secondary transition-colors" data-testid="footer-linkedin">
+              //   <Linkedin className="w-5 h-5" />
+              // </a>
             </div>
           </div>
 
@@ -54,15 +54,15 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 text-sm">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                <span>123 Service Lane, New Delhi, 110001</span>
+                <span>Plot number 01, H. No. 2368, Wathoda, Bagadganj, Nagpur, Maharashtra, India, 440008</span>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <Phone className="w-5 h-5 text-secondary" />
-                <span>+91 98765 43210</span>
+                <span>+91 77700 93373</span>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <Mail className="w-5 h-5 text-secondary" />
-                <span>info@sevasetu.org</span>
+                <span>info@charitage.org</span>
               </li>
             </ul>
           </div>
