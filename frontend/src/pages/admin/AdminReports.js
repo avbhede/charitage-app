@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import { Button } from '../../components/ui/button';
+import { FileUploadBox } from '../../components/FileUploadBox';
 import { Plus, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -12,7 +13,7 @@ export const AdminReports = () => {
   const [loading, setLoading] = useState(true);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const { token } = useAuth();
-  const [formData, setFormData] = useState({ title: '', category: '', file_url: '' });
+  const [formData, setFormData] = useState({ title: '', category: 'Annual Report', file_url: '' });
 
   useEffect(() => { fetchDocs(); }, []);
 
@@ -30,7 +31,7 @@ export const AdminReports = () => {
       await axios.post(`${API_URL}/documents`, formData, { headers: { Authorization: `Bearer ${token}` } });
       toast.success('Document added!');
       setIsFormOpen(false);
-      setFormData({ title: '', category: '', file_url: '' });
+      setFormData({ title: '', category: 'Annual Report', file_url: '' });
       fetchDocs();
     } catch (err) { toast.error(err.response?.data?.detail || 'Error saving'); }
   };
@@ -58,7 +59,7 @@ export const AdminReports = () => {
       {isFormOpen && (
         <div className="bg-white p-6 rounded-lg shadow-sm border">
           <form onSubmit={handleSave} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1">Title</label>
                 <input required className="w-full border p-2 rounded" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} />
@@ -66,21 +67,25 @@ export const AdminReports = () => {
               <div>
                 <label className="block text-sm font-medium mb-1">Category</label>
                 <select className="w-full border p-2 rounded" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})}>
-                  <option value="">Select category</option>
                   <option value="Annual Report">Annual Report</option>
                   <option value="Financial Report">Financial Report</option>
                   <option value="Audit Report">Audit Report</option>
                   <option value="Activity Report">Activity Report</option>
                 </select>
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">File URL (PDF/DOC link)</label>
-                <input required type="url" className="w-full border p-2 rounded" value={formData.file_url} onChange={e => setFormData({...formData, file_url: e.target.value})} />
+              <div className="md:col-span-2">
+                <FileUploadBox
+                  value={formData.file_url}
+                  onChange={(url) => setFormData({ ...formData, file_url: url })}
+                  label="Document File (Browse PDF/DOC from Computer File Manager)"
+                  accept=".pdf,.doc,.docx,.txt"
+                  fileTypeLabel="Documents (PDF, DOC, TXT)"
+                />
               </div>
             </div>
-            <div className="flex justify-end gap-3">
+            <div className="flex justify-end gap-3 pt-4">
               <Button type="button" variant="outline" onClick={() => setIsFormOpen(false)}>Cancel</Button>
-              <Button type="submit">Save</Button>
+              <Button type="submit">Save Document</Button>
             </div>
           </form>
         </div>

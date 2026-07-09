@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import { Button } from '../../components/ui/button';
+import { FileUploadBox } from '../../components/FileUploadBox';
 import { Plus, Edit2, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -131,9 +132,13 @@ export const AdminBlogs = () => {
                 <label className="block text-sm font-medium mb-1">Category</label>
                 <input required type="text" className="w-full border p-2 rounded" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} placeholder="e.g. Health" />
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Image URL</label>
-                <input required type="url" className="w-full border p-2 rounded" value={formData.image_url} onChange={e => setFormData({...formData, image_url: e.target.value})} />
+              <div className="md:col-span-2">
+                <FileUploadBox
+                  value={formData.image_url}
+                  onChange={(url) => setFormData({ ...formData, image_url: url })}
+                  label="Cover Image (Browse from Computer File Manager)"
+                  accept="image/*"
+                />
               </div>
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium mb-1">Excerpt (Short Summary)</label>

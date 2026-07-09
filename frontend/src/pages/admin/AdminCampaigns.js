@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import { Button } from '../../components/ui/button';
+import { FileUploadBox } from '../../components/FileUploadBox';
 import { Plus, Edit2, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -130,8 +131,16 @@ export const AdminCampaigns = () => {
                 <input required type="number" className="w-full border p-2 rounded" value={formData.goal_amount} onChange={e => setFormData({...formData, goal_amount: e.target.value})} />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Image URL</label>
-                <input required type="url" className="w-full border p-2 rounded" value={formData.image_url} onChange={e => setFormData({...formData, image_url: e.target.value})} />
+                <label className="block text-sm font-medium mb-1">Estimated Beneficiaries Count</label>
+                <input type="number" className="w-full border p-2 rounded" value={formData.beneficiaries_count} onChange={e => setFormData({...formData, beneficiaries_count: e.target.value})} />
+              </div>
+              <div className="md:col-span-2">
+                <FileUploadBox
+                  value={formData.image_url}
+                  onChange={(url) => setFormData({ ...formData, image_url: url })}
+                  label="Campaign Cover Image (Browse from Computer File Manager)"
+                  accept="image/*"
+                />
               </div>
             </div>
             <div>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320">
+  <defs>
+    <style>
+      .brand-title {
+        font-family: 'Merriweather', 'Cinzel', 'Times New Roman', serif;
+        font-weight: 700;
+        font-size: 110px;
+        fill: #222566;
+        letter-spacing: 2px;
+      }
+      .brand-sub {
+        font-family: 'Inter', 'Montserrat', 'Arial', sans-serif;
+        font-weight: 700;
+        font-size: 46px;
+        fill: #00AEEF;
+        letter-spacing: 12px;
+      }
+      .brand-motto {
+        font-family: 'Inter', 'Montserrat', 'Arial', sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        fill: #222566;
+        letter-spacing: 7px;
+      }
+    </style>
+  </defs>
+
+  <!-- Left Icon Group -->
+  <g transform="translate(15, 10)">
+    <!-- Red Heart Shape -->
+    <path d="M 145 75 
+             C 110 35, 60 40, 45 80 
+             C 25 130, 60 170, 145 220 
+             C 230 170, 265 130, 245 80 
+             C 230 40, 180 35, 145 75 Z" 
+          fill="none" stroke="#E31E24" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Supporting Dark Blue Hand -->
+    <path d="M 20 190 
+             C 30 160, 70 145, 130 165 
+             C 170 178, 205 160, 245 135 
+             C 258 148, 265 162, 242 180 
+             C 215 200, 195 215, 175 210 
+             C 155 205, 125 210, 85 225 
+             C 45 240, 20 220, 20 190 Z" 
+          fill="#222566" />
+
+    <path d="M 175 190
+             C 195 170, 235 155, 270 165
+             C 260 180, 245 190, 220 195 Z" 
+          fill="#222566" />
+
+    <!-- Human Silhouette Figure Inside Heart -->
+    <!-- Head -->
+    <circle cx="145" cy="115" r="16" fill="#222566" />
+    <!-- Arms raised and torso -->
+    <path d="M 120 165 
+             C 120 140, 115 130, 105 130 
+             C 125 130, 135 145, 145 152 
+             C 155 145, 165 130, 185 130 
+             C 175 130, 170 140, 170 165 
+             Z" 
+          fill="#222566" />
+  </g>
+
+  <!-- Right Text Group -->
+  <g transform="translate(285, 30)">
+    <!-- CHARITAGE -->
+    <text x="0" y="115" class="brand-title">CHARITAGE</text>
+    
+    <!-- — FOUNDATION — -->
+    <g transform="translate(0, 175)">
+      <line x1="0" y1="-14" x2="140" y2="-14" stroke="#222566" stroke-width="3" />
+      <text x="155" y="0" class="brand-sub">FOUNDATION</text>
+      <line x1="565" y1="-14" x2="700" y2="-14" stroke="#222566" stroke-width="3" />
+    </g>
+
+    <!-- LEADING WITH KINDNESS -->
+    <text x="80" y="240" class="brand-motto">LEADING WITH KINDNESS</text>
+  </g>
+</svg>

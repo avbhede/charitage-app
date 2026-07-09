@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import { Button } from '../../components/ui/button';
+import { FileUploadBox } from '../../components/FileUploadBox';
 import { Plus, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -71,15 +72,20 @@ export const AdminGallery = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">URL (image link or YouTube/Vimeo URL)</label>
-                <input required type="url" className="w-full border p-2 rounded" value={formData.url} onChange={e => setFormData({...formData, url: e.target.value})} />
-              </div>
-              <div>
                 <label className="block text-sm font-medium mb-1">Category / Album</label>
                 <input required className="w-full border p-2 rounded" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} placeholder="e.g. Events, Education" />
               </div>
+              <div className="md:col-span-2">
+                <FileUploadBox
+                  value={formData.url}
+                  onChange={(url) => setFormData({ ...formData, url: url })}
+                  label="Media File (Browse Image or Video from Computer File Manager)"
+                  accept={formData.type === 'video' ? 'video/*' : 'image/*'}
+                  fileTypeLabel={formData.type === 'video' ? 'Videos (MP4, WEBM)' : 'Images (JPG, PNG, WEBP)'}
+                />
+              </div>
             </div>
-            <div className="flex justify-end gap-3">
+            <div className="flex justify-end gap-3 pt-4">
               <Button type="button" variant="outline" onClick={() => setIsFormOpen(false)}>Cancel</Button>
               <Button type="submit">Save</Button>
             </div>
