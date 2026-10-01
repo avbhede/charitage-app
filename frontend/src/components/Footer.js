@@ -9,7 +9,7 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="/logo-landscape.svg"
+                src="/logo-landscape.png"
                 alt="Charitage Foundation Logo"
                 className="h-16 w-auto object-contain bg-white p-2.5 rounded-2xl shadow-md"
               />
@@ -17,7 +17,6 @@ export const Footer = () => {
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               Leading with kindness. Building bridges of hope across India through education, healthcare, and community empowerment.
             </p>
-<<<<<<< HEAD
             <div className="flex space-x-4 pt-2">
               <a
                 href="https://www.facebook.com/profile.php?id=61588498050844"
@@ -46,21 +45,6 @@ export const Footer = () => {
               >
                 <Youtube className="w-5 h-5" />
               </a>
-=======
-            <div className="flex space-x-4">
-              <a href="https://www.facebook.com/people/Charitage-Foundation/61588498050844/" className="hover:text-secondary transition-colors" data-testid="footer-facebook">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="https://youtube.com/@charitagefoundationngo?si=hNQP2ruWtrQm1oVf" className="hover:text-secondary transition-colors" data-testid="footer-youtube">
-                <YouTube className="w-5 h-5" />
-              </a>
-              <a href="https://www.instagram.com/charitage_foundation?igsh=c2ZndHlpdGZjNWx2" className="hover:text-secondary transition-colors" data-testid="footer-instagram">
-                <Instagram className="w-5 h-5" />
-              </a>
-              // <a href="#" className="hover:text-secondary transition-colors" data-testid="footer-linkedin">
-              //   <Linkedin className="w-5 h-5" />
-              // </a>
->>>>>>> c8cec4e5b4b4e633d5a8f0df826e096ea00b2d04
             </div>
           </div>
 
@@ -94,21 +78,12 @@ export const Footer = () => {
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                 <span>Plot number 01, H. No. 2368, Wathoda, Bagadganj, Nagpur, Maharashtra, India, 440008</span>
               </li>
-<<<<<<< HEAD
               <li className="flex items-center space-x-3 text-sm text-white/80">
                 <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <span>+91 7770093373</span>
+                <span>+91 77700 93373</span>
               </li>
               <li className="flex items-center space-x-3 text-sm text-white/80">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-=======
-              <li className="flex items-center space-x-3 text-sm">
-                <Phone className="w-5 h-5 text-secondary" />
-                <span>+91 77700 93373</span>
-              </li>
-              <li className="flex items-center space-x-3 text-sm">
-                <Mail className="w-5 h-5 text-secondary" />
->>>>>>> c8cec4e5b4b4e633d5a8f0df826e096ea00b2d04
                 <span>info@charitage.org</span>
               </li>
             </ul>

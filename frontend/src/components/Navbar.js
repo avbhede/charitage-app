@@ -59,7 +59,7 @@ export const Navbar = () => {
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" className="flex items-center" data-testid="navbar-logo">
                 <img
-                  src="/logo-landscape.svg"
+                  src="/logo-landscape.png"
                   alt="Charitage Foundation Logo"
                   className="h-11 sm:h-12 md:h-14 w-auto object-contain transition-transform hover:scale-[1.02]"
                 />

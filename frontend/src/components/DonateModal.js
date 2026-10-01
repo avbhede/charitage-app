@@ -30,13 +30,6 @@ const DonateModal = ({ open, onClose, campaignId = null, campaignTitle = '' }) =
   });
 
   const predefinedAmounts = [500, 1000, 2500, 5000, 10000];
-  const durationOptions = [
-    { label: '3 Months', value: 3 },
-    { label: '6 Months', value: 6 },
-    { label: '12 Months (1 Yr)', value: 12 },
-    { label: '24 Months (2 Yrs)', value: 24 },
-    { label: '36 Months (3 Yrs)', value: 36 },
-  ];
 
   const handleAmountSelect = (amount) => {
     setFormData({ ...formData, amount: amount.toString() });

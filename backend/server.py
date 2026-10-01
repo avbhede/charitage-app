@@ -578,7 +578,7 @@ async def create_donation_order(donation_data: DonationCreate):
                 donor_phone=donation_data.donor_phone,
                 donor_pan=donation_data.donor_pan,
                 is_recurring=True,
-                duration_months=donation_data.duration_months or 12,
+                duration_months=donation_data.duration_months or 1200,
                 gift_address=donation_data.gift_address,
                 is_anonymous=donation_data.is_anonymous,
                 razorpay_subscription_id=subscription["id"],
