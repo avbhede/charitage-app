@@ -1,0 +1,73 @@
+name: Deploy Backend to Google Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-cloudrun.yml'
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  SERVICE_NAME: charitage-backend
+  REGION: asia-south1 # Mumbai region (or change to asia-southeast1 / us-central1)
+
+jobs:
+  deploy:
+    name: Build & Deploy to Cloud Run
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Authorize Docker Push to Google Artifact / Container Registry
+        run: |
+          gcloud auth configure-docker --quiet
+
+      - name: Build Docker Image
+        run: |
+          docker build \
+            -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }} \
+            -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:latest \
+            -f backend/Dockerfile \
+            backend
+
+      - name: Push Docker Image to GCR
+        run: |
+          docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:latest
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ env.SERVICE_NAME }}
+          image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          region: ${{ env.REGION }}
+          flags: |
+            --allow-unauthenticated
+            --min-instances=1
+            --port=8080
+            --set-env-vars=DB_NAME=${{ secrets.DB_NAME || 'charitage' }}
+            --set-env-vars=MONGO_URL=${{ secrets.MONGO_URL }}
+            --set-env-vars=JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }}
+            --set-env-vars=RAZORPAY_KEY_ID=${{ secrets.RAZORPAY_KEY_ID }}
+            --set-env-vars=RAZORPAY_KEY_SECRET=${{ secrets.RAZORPAY_KEY_SECRET }}
+            --set-env-vars=CORS_ORIGINS=${{ secrets.CORS_ORIGINS || '*' }}
+
+      - name: Show Service URL
+        run: |
+          echo "Cloud Run deployed successfully!"
+          echo "Service URL: ${{ steps.deploy.outputs.url }}"

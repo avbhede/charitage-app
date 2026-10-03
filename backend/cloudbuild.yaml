@@ -1,0 +1,52 @@
+steps:
+  # 1. Build Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/charitage-backend:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/charitage-backend:latest'
+      - '-f'
+      - 'backend/Dockerfile'
+      - 'backend'
+
+  # 2. Push image to Container / Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/charitage-backend:$COMMIT_SHA'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/charitage-backend:latest'
+
+  # 3. Deploy container image to Google Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'charitage-backend'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/charitage-backend:$COMMIT_SHA'
+      - '--region'
+      - '${_REGION}'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--min-instances'
+      - '1'
+      - '--port'
+      - '8080'
+
+images:
+  - 'gcr.io/$PROJECT_ID/charitage-backend:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/charitage-backend:latest'
+
+substitutions:
+  _REGION: 'asia-south1'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

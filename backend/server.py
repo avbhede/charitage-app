@@ -1167,6 +1167,14 @@ async def get_stats():
         volunteers=volunteers_count
     )
 
+@app.get("/")
+async def root():
+    return {"status": "ok", "service": "charitage-backend"}
+
+@api_router.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
 app.include_router(api_router)
 
 app.add_middleware(
