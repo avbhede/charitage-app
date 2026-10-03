@@ -1,0 +1,20 @@
+# backend-php/.htaccess
+# Route all API requests through index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Pass Authorization Header to PHP
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+    # Don't rewrite real files or directories
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Rewrite all other URLs to index.php
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Security: prevent directory browsing
+Options -Indexes
